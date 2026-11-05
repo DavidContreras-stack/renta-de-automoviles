@@ -1,579 +1,114 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>AutoRent | Renta de Vehículos</title>
+<title>AutoRent - Renta de Vehículos</title>
 
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <style>
-
-/* ==========================
-   ESTILO GENERAL
-========================== */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #071426, #102d50, #087e91);
+  body {
+    background: linear-gradient(135deg, #0b192c 0%, #1a365d 50%, #188D97 100%);
     background-attachment: fixed;
-    font-family: "Segoe UI", Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* ==========================
-   BARRA DE NAVEGACIÓN
-========================== */
-
-.navbar {
-    background: rgba(5, 17, 34, 0.95);
-    border: none;
-    border-bottom: 2px solid #00c9df;
-    border-radius: 0;
-    min-height: 75px;
-    margin-bottom: 0;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-}
-
-.navbar .container-fluid {
-    padding: 0 35px;
-}
-
-.navbar-brand {
-    color: #ffffff !important;
-    font-size: 25px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    padding-top: 27px;
-    transition: 0.3s;
-}
-
-.navbar-brand span {
-    color: #00d9ed;
-}
-
-.navbar-brand:hover {
-    text-shadow: 0 0 15px #00d9ed;
-}
-
-.navbar-nav > li > a {
-    color: #ffffff !important;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 27px 22px;
-    transition: all 0.3s ease;
-}
-
-.navbar-nav > li > a:hover {
-    color: #00e5ff !important;
-    background: rgba(0, 217, 237, 0.12) !important;
-    text-shadow: 0 0 10px #00d9ed;
-}
-
-.navbar-nav > .open > a,
-.navbar-nav > .open > a:hover,
-.navbar-nav > .open > a:focus {
-    background: #123a59 !important;
-    color: #00e5ff !important;
-}
-
-/* MENÚ DESPLEGABLE */
-
-.dropdown-menu {
-    background: #0c2038;
-    border: 1px solid rgba(0,217,237,0.4);
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-}
-
-.dropdown-menu > li > a {
-    color: #ffffff;
-    padding: 12px 18px;
-    transition: 0.3s;
-}
-
-.dropdown-menu > li > a:hover {
-    background: #087e91;
-    color: white;
-    padding-left: 25px;
-}
-
-/* BOTÓN RESPONSIVO */
-
-.navbar-toggle {
-    margin-top: 20px;
-    border-color: #00d9ed !important;
-}
-
-.navbar-toggle .icon-bar {
-    background: #00d9ed !important;
-}
-
-/* ==========================
-   PRESENTACIÓN PRINCIPAL
-========================== */
-
-.hero {
-    position: relative;
-    min-height: 570px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 65px 20px;
-    overflow: hidden;
-}
-
-/* LUCES DECORATIVAS */
-
-.luz {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(5px);
-    pointer-events: none;
-}
-
-.luz-uno {
-    width: 250px;
-    height: 250px;
-    background: rgba(0,217,237,0.13);
-    top: 30px;
-    left: -80px;
-}
-
-.luz-dos {
-    width: 300px;
-    height: 300px;
-    background: rgba(37,99,235,0.18);
-    bottom: -100px;
-    right: -60px;
-}
-
-/* CONTENEDOR DE CONTENIDO */
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1100px;
-    padding: 45px;
-    text-align: center;
-
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 25px;
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.4),
-        inset 0 1px 1px rgba(255,255,255,0.2);
-
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease;
-}
-
-.hero-content:hover {
-    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
-}
-
-/* TÍTULOS */
-
-.hero h1 {
-    color: #ffffff;
-    font-size: 46px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    margin-bottom: 15px;
-}
-
-.hero h1 span {
-    color: #00e5ff;
-}
-
-.hero p {
-    color: #dcecf5;
-    font-size: 18px;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 25px;
-}
-
-/* LOGOTIPO CON EFECTO 3D */
-
-.logo-container {
-    perspective: 1000px;
-    margin: 25px auto;
-}
-
-.logo-container img {
-    width: 100%;
-    max-width: 430px;
-    height: auto;
-    border-radius: 18px;
-
-    box-shadow:
-        0 20px 35px rgba(0,0,0,0.5),
-        0 0 25px rgba(0,217,237,0.15);
-
-    transform: rotateX(5deg) rotateY(-5deg);
-    transition: all 0.5s ease;
-}
-
-.logo-container img:hover {
-    transform: rotateX(0deg) rotateY(0deg) scale(1.05);
-    box-shadow: 0 25px 50px rgba(0,217,237,0.3);
-}
-
-/* ==========================
-   OBJETOS DECORATIVOS 3D
-========================== */
-
-.objeto-3d {
-    position: absolute;
-    width: 75px;
-    height: 75px;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  .jumbotron {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    background: linear-gradient(135deg, #00e5ff, #087e91);
-
-    box-shadow:
-        12px 15px 25px rgba(0,0,0,0.35),
-        inset -5px -5px 12px rgba(0,0,0,0.2),
-        inset 5px 5px 12px rgba(255,255,255,0.3);
-
-    transform-style: preserve-3d;
-    animation: flotar 5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.objeto-uno {
-    top: 100px;
-    left: 8%;
-    transform: rotate(35deg);
-}
-
-.objeto-dos {
-    bottom: 100px;
-    right: 9%;
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #ffffff, #00a6c7);
-    animation-delay: 1.5s;
-}
-
-@keyframes flotar {
-    0%, 100% {
-        transform: translateY(0) rotate(35deg);
-    }
-    50% {
-        transform: translateY(-25px) rotate(55deg);
-    }
-}
-
-/* ==========================
-   BOTONES
-========================== */
-
-.botones {
-    margin-top: 30px;
-}
-
-.btn-autorent {
-    display: inline-block;
-    margin: 8px;
-    padding: 14px 30px;
-    border-radius: 30px;
-    text-decoration: none !important;
-    font-size: 15px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-principal {
-    background: linear-gradient(135deg, #00d9ed, #087e91);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    margin-top: 40px;
+    padding: 40px;
+  }
+  .jumbotron h1 {
     color: #ffffff;
-    box-shadow: 0 8px 20px rgba(0,217,237,0.25);
-}
-
-.btn-secundario {
-    border: 2px solid #00d9ed;
-    color: #ffffff;
-}
-
-.btn-autorent:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,217,237,0.35);
-}
-
-.btn-principal:hover {
-    color: #ffffff;
-}
-
-.btn-secundario:hover {
-    background: #00d9ed;
-    color: #071426;
-}
-
-/* ==========================
-   PIE DE PÁGINA
-========================== */
-
-footer {
-    padding: 25px 10px;
-    background: rgba(3,12,25,0.8);
-    border-top: 1px solid rgba(0,217,237,0.25);
-}
-
-footer p {
-    color: #b8d1df;
-    font-size: 13px;
-    margin: 0;
-}
-
-/* ==========================
-   ADAPTACIÓN A CELULARES
-========================== */
-
-@media (max-width: 767px) {
-
-    .navbar .container-fluid {
-        padding: 0 15px;
-    }
-
-    .navbar-brand {
-        padding-top: 15px;
-    }
-
-    .navbar-nav > li > a {
-        padding: 15px 20px;
-    }
-
-    .hero {
-        padding: 35px 15px;
-        min-height: 500px;
-    }
-
-    .hero-content {
-        padding: 25px 15px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .objeto-3d {
-        width: 40px;
-        height: 40px;
-    }
-
-    .objeto-dos {
-        width: 35px;
-        height: 35px;
-    }
-
-}
-
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  }
+  .jumbotron p, footer p {
+    color: #e2e8f0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  .jumbotron img {
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .jumbotron img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
 </style>
 </head>
-
 <body>
-
-<!-- ==========================
-     MENÚ PRINCIPAL
-========================== -->
-
 <nav class="navbar navbar-default">
-
-    <div class="container-fluid">
-
-        <div class="navbar-header">
-
-            <button type="button"
-            class="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#menuPrincipal"
-            aria-expanded="false">
-
-                <span class="sr-only">Abrir navegación</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-
-            <a class="navbar-brand" href="index.html">
-                AUTO<span>RENT</span>
-            </a>
-
-        </div>
-
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-
-                <!-- MENÚ SERVICIOS -->
-
-                <li class="dropdown">
-
-                    <a href="#" class="dropdown-toggle"
-                    data-toggle="dropdown" role="button">
-
-                        Servicios <span class="caret"></span>
-
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li><a href="servicios/mantenimiento.html">Mantenimiento</a></li>
-
-                        <li><a href="servicios/montallantas.html">Montallantas</a></li>
-
-                        <li><a href="servicios/alineacion.html">Alineación</a></li>
-
-                        <li><a href="servicios/balanceo.html">Balanceo</a></li>
-
-                    </ul>
-
-                </li>
-
-                <!-- MENÚ INFORMACIÓN -->
-
-                <li class="dropdown">
-
-                    <a href="#" class="dropdown-toggle"
-                    data-toggle="dropdown" role="button">
-
-                        Información <span class="caret"></span>
-
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li><a href="menú_del_sitio/autos.html">Autos</a></li>
-
-                        <li><a href="menú_del_sitio/contacto.html">Contacto</a></li>
-
-                    </ul>
-
-                </li>
-
-            </ul>
-
-        </div>
-
+  <div class="container-fluid"> 
+    <div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
+        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+      </button>
+      <strong>Bienvenido </strong><br>
     </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#"></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <!-- Botón Servicios -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Servicios</strong> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="servicios/mantenimiento.html">Mantenimiento</a></li>
+            <li><a href="servicios/montallantas.html">Montallantas</a></li>
+            <li><a href="servicios/alineacion.html">Alineación</a></li>
+            <li><a href="servicios/balanceo.html">Balanceo</a></li>
+          </ul>
+        </li>
+        
+        <!-- Botón Información -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Información</strong> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="menú_del_sitio/autos.html">Autos</a></li>
+            <li><a href="menú_del_sitio/contacto.html">Contacto</a></li>
+          </ul>
+        </li>
 
+      </ul>
+    </div>
+  </div>
 </nav>
 
-
-<!-- ==========================
-     PRESENTACIÓN PRINCIPAL
-========================== -->
-
-<header class="hero" id="inicio">
-
-    <div class="luz luz-uno"></div>
-    <div class="luz luz-dos"></div>
-
-    <!-- OBJETOS 3D DECORATIVOS -->
-
-    <div class="objeto-3d objeto-uno"></div>
-    <div class="objeto-3d objeto-dos"></div>
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <h1>
-                BIENVENIDO A <span>AUTORENT</span>
-            </h1>
-
-            <p>
-                Descubre una nueva experiencia de movilidad.
-                Encuentra el vehículo ideal para tus viajes,
-                negocios y aventuras. Calidad, comodidad y
-                confianza en un solo lugar.
-            </p>
-
-            <!-- LOGOTIPO -->
-
-            <div class="logo-container">
-
-                <img
-                src="servicios/AutoRent.png"
-                alt="Logotipo de AutoRent"
-                class="img-responsive center-block">
-
-            </div>
-
-            <!-- BOTONES DE NAVEGACIÓN -->
-
-            <div class="botones">
-
-                <a href="menú_del_sitio/autos.html"
-                class="btn-autorent btn-principal">
-
-                    Explorar vehículos
-
-                </a>
-
-                <a href="menú_del_sitio/contacto.html"
-                class="btn-autorent btn-secundario">
-
-                    Contáctanos
-
-                </a>
-
-            </div>
-
+<header>
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="text-center"><img src="servicios/AutoRent.png" width="1100" height="1000" alt="AutoRent Logo" class="img-responsive center-block"/></p>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </header>
 
-
-<!-- ==========================
-     PIE DE PÁGINA
-========================== -->
-
 <footer class="text-center">
-
-    <div class="container">
-
-        <p>
-            Copyright © AutoRent.
-            Todos los derechos reservados.
-        </p>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <br><p>Copyright © AutoRent. Todos los derechos reservados.</p><br>
+      </div>
     </div>
-
+  </div>
 </footer>
 
-
-<!-- ARCHIVOS JAVASCRIPT DE BOOTSTRAP -->
-
-<script src="js/jquery-1.11.3.min.js"></script>
-
+<script src="js/jquery-1.11.3.min.js"></script> 
 <script src="js/bootstrap.js"></script>
-
 </body>
 </html>
