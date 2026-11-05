@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Servicio de Montallantas - AutoRent</title>
+
+<!-- Se usa ../ para salir de la carpeta servicios -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+
+<style>
+  body {
+    background: linear-gradient(135deg, #0b192c 0%, #1a365d 50%, #188D97 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  .jumbotron {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    margin-top: 40px;
+    padding: 40px;
+  }
+  .jumbotron h1 {
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  }
+  .jumbotron p, footer p {
+    color: #e2e8f0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  .jumbotron img {
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .jumbotron img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
+    <div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
+        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+      </button>
+      <strong><a href="../index.html" style="color: inherit; text-decoration: none;">Bienvenido (Inicio)</a></strong><br>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#"></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Servicios</strong> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="mantenimiento.html">Mantenimiento</a></li>
+            <li><a href="montallantas.html">Montallantas</a></li>
+            <li><a href="alineacion.html">Alineación</a></li>
+            <li><a href="balanceo.html">Balanceo</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Información</strong> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../menú_del_sitio/autos.html">Autos</a></li>
+            <li><a href="../menú_del_sitio/contacto.html">Contacto</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Servicio de montallantas</h1>
+          <p class="text-center">Ofrecemos servicios de reparación, instalación y cambio de llantas para diferentes tipos de vehículos. Contamos con personal capacitado y herramientas especializadas para garantizar tu seguridad y el buen estado de tus neumáticos.</p>
+          <p class="text-center"><img src="montallantas.png" width="1000" height="500" alt="Montallantas" class="img-responsive center-block"/></p>
+          <p>&nbsp;</p>
+          <p class="text-center"><a class="btn btn-primary btn-lg" href="../menú_del_sitio/contacto.html" role="button">Agendar cita</a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<footer class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <br><p>Copyright © AutoRent. Todos los derechos reservados.</p><br>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/jquery-1.11.3.min.js"></script> 
+<script src="../js/bootstrap.js"></script>
+</body>
+</html>
