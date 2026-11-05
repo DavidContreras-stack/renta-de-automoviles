@@ -7,6 +7,8 @@
 <title>AutoRent - Renta de Vehículos</title>
 
 <link rel="stylesheet" href="css/bootstrap.css">
+<!-- Librería de Google para renderizar objetos 3D -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 
 <style>
   body {
@@ -29,19 +31,48 @@
     color: #ffffff;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
   }
-  .jumbotron p, footer p {
+  .jumbotron p {
     color: #e2e8f0;
+    font-size: 18px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
   }
-  .jumbotron img {
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  footer p {
+    color: #e2e8f0;
   }
-  .jumbotron img:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  
+  /* Estilos del botón Call-to-Action */
+  .btn-custom {
+    background-color: #188D97;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+  .btn-custom:hover {
+    background-color: #0b192c;
+    color: white;
+    box-shadow: 0 8px 20px rgba(24, 141, 151, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Contenedor del objeto 3D */
+  model-viewer {
+    width: 100%;
+    height: 350px;
+    background-color: transparent;
+    --poster-color: transparent;
+  }
+  
+  /* Flexbox para alinear verticalmente el texto y el modelo 3D */
+  .header-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 </style>
 </head>
@@ -89,10 +120,29 @@
 <header>
   <div class="container">
     <div class="jumbotron">
-      <div class="row">
-        <div class="col-xs-12">
-          <p class="text-center"><img src="servicios/AutoRent.png" width="1100" height="1000" alt="AutoRent Logo" class="img-responsive center-block"/></p>
+      <!-- Sistema de grillas para dividir el Jumbotron en dos columnas -->
+      <div class="row header-content">
+        
+        <!-- Columna Izquierda: Texto y Botón -->
+        <div class="col-md-6 col-sm-12 text-left">
+          <h1>El viaje perfecto inicia aquí</h1>
+          <p>Encuentra el vehículo ideal para tus necesidades. Renta con seguridad, comodidad y las mejores tarifas del mercado.</p>
+          <a href="menú_del_sitio/autos.html" class="btn btn-custom">Ver Catálogo</a>
         </div>
+        
+        <!-- Columna Derecha: Objeto 3D -->
+        <div class="col-md-6 col-sm-12">
+          <!-- Visor 3D interactivo -->
+          <model-viewer 
+            src="modelos/auto.glb" 
+            alt="Modelo 3D de un automóvil" 
+            auto-rotate 
+            camera-controls 
+            shadow-intensity="1"
+            exposure="1.2">
+          </model-viewer>
+        </div>
+
       </div>
     </div>
   </div>
